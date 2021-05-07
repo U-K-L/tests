@@ -3,8 +3,7 @@
 # 1. Incorrect baseFee after a block
 # 2. gasTarget decreased by more than 1/1024
 # 3. gasTarget increased by more than 1/1024
-#
-# STILL MISSING: A case where gasUsed > 2*gasTarget
+# 4. gasUsed > 2*gasTarget
 
 badBlocks:
   genesisBlockHeader:
@@ -26,6 +25,7 @@ badBlocks:
     baseFee: 1000
   sealEngine: NoProof
 
+
   pre:
     0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b:
       balance: 0x10000000000
@@ -37,17 +37,6 @@ badBlocks:
       balance: 0x1000000000000
       nonce: 1
       code: ''
-      storage: {}
-
-    # Store the current gasPrice (the amount a user pays, which isn't the same as 
-    # what the miner gets)
-    0xcccccccccccccccccccccccccccccccccccccccc:
-      balance: 0x10000000000
-      nonce: 1
-      code: |
-         :yul {
-            sstore(number(), gasprice())
-         }
       storage: {}
 
 
@@ -128,12 +117,97 @@ badBlocks:
     transactions: []
 
 
+  # gasUsed can be no more than 2*gasTarget
+  - blockHeader:
+      gasTarget: 0x3d000000
+    transactions:
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+
+
+
+  - blockHeader:
+      gasTarget: 0x3d000000
+    transactions:
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800001   # Half the gas target plus one
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      invalid: 1
+      accessList: []
+      gasLimit: 0x1e800000   # Half the gas target, but we don't have enough gas
+      tip: 0x00
+      feeCap: 4000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+
+
   expect:
   - network:
     - ">=London"
-    result:
-      0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC:
-        storage:
-          0x00: 0x00
+    result: {}
+#      0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC:
+#        storage:
+#          0x00: 0x00
 
 
