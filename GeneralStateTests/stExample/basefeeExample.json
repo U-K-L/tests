@@ -2,11 +2,11 @@
     "basefeeExample" : {
         "_info" : {
             "comment" : "A test shows basefee transaction example",
-            "filling-rpc-server" : "evm version 1.10.3-unstable-c3e8b606-20210501",
-            "filling-tool-version" : "retesteth-0.1.1-eip1559+commit.5faa7684.Linux.g++",
+            "filling-rpc-server" : "evm version 1.10.4-unstable-f1454d77-20210507",
+            "filling-tool-version" : "retesteth-0.1.1-eip1559+commit.fbcc4205.Linux.g++",
             "lllcversion" : "Version: 0.5.14-develop.2021.3.9+commit.14c9d5de.Linux.g++",
             "source" : "src/GeneralStateTestsFiller/stExample/basefeeExampleFiller.yml",
-            "sourceHash" : "0a0dce3f9fcca12f405bd4d13cfbf5b28b8e2b601aa3f804252dbab1bd05bc32",
+            "sourceHash" : "dea20931a03c0b6acc27e6c77a01dcb8fbb5f2212f7ac9832e81673fb6a49e64",
             "labels" : {
                 "0" : ":label declaredKeyWrite"
             }
@@ -17,7 +17,7 @@
             "currentNumber" : "0x01",
             "currentTimestamp" : "0x03e8",
             "previousHash" : "0x5e20a0453cecd065ea59c37ac63e079ee08998b6045136a8ce6635c7912ec0b6",
-            "currentGasTarget" : "0x1000000000",
+            "currentGasLimit" : "0x1000000000",
             "currentBaseFee" : "0x042c1d80"
         },
         "post" : {
