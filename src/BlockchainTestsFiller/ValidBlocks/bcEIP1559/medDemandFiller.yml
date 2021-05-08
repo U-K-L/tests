@@ -20,7 +20,7 @@ medDemand:
     timestamp: '0x03b6'
     transactionsTrie: '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421'
     uncleHash: '0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347'
-    gasTarget: 88000
+    gasLimit: 176000
     gasUsed: 88000
     baseFee: 1000
   sealEngine: NoProof
@@ -61,49 +61,7 @@ medDemand:
 
   blocks:
   
-  # A block that spends exactly gasLimit
-
-  - transactions:
-    - data: ''
-      accessList: []
-      gasLimit: 44896
-      tip: 0x00
-      feeCap: 2000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 43104
-      tip: 0x00
-      feeCap: 2000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-      value: 0x0
-  # A block that spends exactly gasLimit
-
-  - transactions:
-    - data: ''
-      accessList: []
-      gasLimit: 44896
-      tip: 0x00
-      feeCap: 2000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 43104
-      tip: 0x00
-      feeCap: 2000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-      value: 0x0
-  # A block that spends exactly gasLimit
+  # A block that spends exactly gasTarget
 
   - transactions:
     - data: ''
@@ -125,7 +83,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -146,7 +103,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -167,7 +123,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -188,7 +143,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -209,7 +163,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -230,7 +183,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -251,7 +203,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -272,7 +223,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -293,7 +243,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -314,7 +263,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -335,7 +283,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -356,7 +303,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -377,7 +323,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -398,7 +343,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -419,7 +363,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -440,7 +383,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -461,7 +403,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -482,7 +423,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -503,7 +443,6 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
   - transactions:
     - data: ''
       accessList: []
@@ -524,7 +463,46 @@ medDemand:
       to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       value: 0x0
 
-  # A block that spends exactly gasLimit
+  - transactions:
+    - data: ''
+      accessList: []
+      gasLimit: 44896
+      tip: 0x00
+      feeCap: 2000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 43104
+      tip: 0x00
+      feeCap: 2000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      value: 0x0
+
+  - transactions:
+    - data: ''
+      accessList: []
+      gasLimit: 44896
+      tip: 0x00
+      feeCap: 2000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 43104
+      tip: 0x00
+      feeCap: 2000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      value: 0x0
+
   - transactions:
     - data: ''
       accessList: []

@@ -3,7 +3,6 @@
 # 1. Incorrect baseFee after a block
 # 2. gasTarget decreased by more than 1/1024
 # 3. gasTarget increased by more than 1/1024
-# 4. gasUsed > 2*gasTarget
 
 badBlocks:
   genesisBlockHeader:
@@ -21,7 +20,7 @@ badBlocks:
     timestamp: '0x03b6'
     transactionsTrie: '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421'
     uncleHash: '0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347'
-    gasTarget: 1024000000
+    gasLimit: 1073741824  # 1024^3
     baseFee: 1000
   sealEngine: NoProof
 
@@ -86,128 +85,89 @@ badBlocks:
 
 
   # gasTarget can be decreased, but by no more than 1/1024 per block.
+  # gasLimit is twice gasTarget, so it is the same fraction.
   #
   # From the EIP:
   #
   # assert block.gas_target >= parent_gas_target - parent_gas_target // 1024, 'invalid block: gas target decreased too much'
 
   - blockHeader:
-      gasTarget:  0x3cf9bdbf 
+      gasLimit:  1072693247
     expectException:
       '>=London': targetGasLow
     transactions: []
   - blockHeader:
-      gasTarget: 0x3cf9bdc0
+      gasLimit: 1072693248    # 1024*1024*1023 (1023/1024 of the previous gasLimit)
     transactions: []
 
 
   # gasTarget can be increased, but by no more than 1/1024 per block.
+  # gasLimit is twice gasTarget, so it is the same fraction.
   #
   # From the EIP:
   #
   # assert block.gas_target <= parent_gas_target + parent_gas_target // 1024, 'invalid block: gas target increased too much'
 
   - blockHeader:
-      gasTarget: 0x3d08fc30
+      gasLimit: 1073740802
     expectException:
       '>=London': targetGasHigh
     transactions: []
   - blockHeader:
-      gasTarget: 0x3d08fc2f
+      # 1024*1023*1025 (1025/1024 of the previous limit) plus one. The one is accepted
+      # because of the effects of integer division 
+      gasLimit: 1073740801  
     transactions: []
 
 
-  # gasUsed can be no more than 2*gasTarget
-  - blockHeader:
-      gasTarget: 0x3d000000
-    transactions:
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
+  # gasUsed can be no more than 2*gasTarget (which is why that is called gasLimit)
+#  - blockHeader:
+#      gasLimit: 1073741824   # Go back to 1024^3
+#    transactions:
+#    - data: ''
+#      accessList: []
+#      gasLimit:  268435456   # Half the gas target, quarter of the limit
+#      tip: 0x00
+#      feeCap: 4000
+#      nonce: auto
+#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+#      to: 0x1111111111111111111111111111111111111111
+#      value: 0x0
+#    - data: ''
+#      accessList: []
+#      gasLimit:  268435456   # Half the gas target, quarter of the limit
+#      tip: 0x00
+#      feeCap: 4000
+#      nonce: auto
+#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+#      to: 0x1111111111111111111111111111111111111111
+#      value: 0x0
+#    - data: ''
+#      accessList: []
+#      gasLimit:  268435456   # Half the gas target, quarter of the limit
+#      tip: 0x00
+#      feeCap: 4000
+#      nonce: auto
+#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+#      to: 0x1111111111111111111111111111111111111111
+#      value: 0x0
+#    - data: ''
+#      accessList: []
+#      gasLimit:  268435456   # Half the gas target, quarter of the limit
+#      tip: 0x00
+#      feeCap: 4000
+#      nonce: auto
+#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+#      to: 0x1111111111111111111111111111111111111111
+#      value: 0x0
 
 
-
-  - blockHeader:
-      gasTarget: 0x3d000000
-    transactions:
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800001   # Half the gas target plus one
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-    - data: ''
-      invalid: 1
-      accessList: []
-      gasLimit: 0x1e800000   # Half the gas target, but we don't have enough gas
-      tip: 0x00
-      feeCap: 4000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
 
 
   expect:
   - network:
     - ">=London"
+    # No real result, this file checks 
     result: {}
-#      0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC:
-#        storage:
-#          0x00: 0x00
 
 

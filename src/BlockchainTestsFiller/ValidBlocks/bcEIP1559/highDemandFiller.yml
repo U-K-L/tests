@@ -19,7 +19,7 @@ highDemand:
     timestamp: '0x03b6'
     transactionsTrie: '0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421'
     uncleHash: '0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347'
-    gasTarget: 100000
+    gasLimit:  200000
     gasUsed:   100000
     baseFee: 1000
   sealEngine: NoProof
@@ -61,7 +61,7 @@ highDemand:
   blocks:
 
   - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
@@ -84,7 +84,7 @@ highDemand:
 
 
   - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
@@ -107,7 +107,7 @@ highDemand:
 
 
   - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
@@ -129,31 +129,7 @@ highDemand:
       value: 0x0
 
   - blockHeader:
-      gasTarget: 100000
-    transactions:
-    - data: ''
-      accessList: []
-      gasLimit: 43104
-      tip: 0x00
-      feeCap: 2000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-      value: 0x0
-    - data: ''
-      accessList: []
-      gasLimit: 156896
-      tip: 0x00
-      feeCap: 2000
-      nonce: auto
-      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-      to: 0x1111111111111111111111111111111111111111
-      value: 0x0
-
-
-
-  - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
@@ -177,7 +153,7 @@ highDemand:
 
 
   - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
@@ -201,7 +177,7 @@ highDemand:
 
 
   - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
@@ -225,7 +201,31 @@ highDemand:
 
 
   - blockHeader:
-      gasTarget: 100000
+      gasLimit: 200000
+    transactions:
+    - data: ''
+      accessList: []
+      gasLimit: 43104
+      tip: 0x00
+      feeCap: 2000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      value: 0x0
+    - data: ''
+      accessList: []
+      gasLimit: 156896
+      tip: 0x00
+      feeCap: 2000
+      nonce: auto
+      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
+      to: 0x1111111111111111111111111111111111111111
+      value: 0x0
+
+
+
+  - blockHeader:
+      gasLimit: 200000
     transactions:
     - data: ''
       accessList: []
