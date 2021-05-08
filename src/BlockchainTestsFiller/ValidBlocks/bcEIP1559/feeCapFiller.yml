@@ -187,7 +187,7 @@ feeCap:
           0x370: 1  # gasPrice 880 (= feeCap)
 
 
-          0x371: 0  # gasPrice 881 (> feeCap, so the transaction doesn't happen)
+          0x371: 0  # gasPrice 881 (> feeCap, so the transaction is reverted)
           0x372: 0
           0x373: 0
           0x374: 0
