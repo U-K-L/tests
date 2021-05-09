@@ -4,6 +4,7 @@
 # 2. gasTarget decreased by more than 1/1024
 # 3. gasTarget increased by more than 1/1024
 
+
 badBlocks:
   genesisBlockHeader:
     bloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
@@ -120,46 +121,6 @@ badBlocks:
     transactions: []
 
 
-  # gasUsed can be no more than 2*gasTarget (which is why that is called gasLimit)
-#  - blockHeader:
-#      gasLimit: 1073741824   # Go back to 1024^3
-#    transactions:
-#    - data: ''
-#      accessList: []
-#      gasLimit:  268435456   # Half the gas target, quarter of the limit
-#      tip: 0x00
-#      feeCap: 4000
-#      nonce: auto
-#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-#      to: 0x1111111111111111111111111111111111111111
-#      value: 0x0
-#    - data: ''
-#      accessList: []
-#      gasLimit:  268435456   # Half the gas target, quarter of the limit
-#      tip: 0x00
-#      feeCap: 4000
-#      nonce: auto
-#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-#      to: 0x1111111111111111111111111111111111111111
-#      value: 0x0
-#    - data: ''
-#      accessList: []
-#      gasLimit:  268435456   # Half the gas target, quarter of the limit
-#      tip: 0x00
-#      feeCap: 4000
-#      nonce: auto
-#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-#      to: 0x1111111111111111111111111111111111111111
-#      value: 0x0
-#    - data: ''
-#      accessList: []
-#      gasLimit:  268435456   # Half the gas target, quarter of the limit
-#      tip: 0x00
-#      feeCap: 4000
-#      nonce: auto
-#      secretKey: 41f6e321b31e72173f8ff2e292359e1862f24fba42fe6f97efaf641980eff298
-#      to: 0x1111111111111111111111111111111111111111
-#      value: 0x0
 
 
 
@@ -167,7 +128,7 @@ badBlocks:
   expect:
   - network:
     - ">=London"
-    # No real result, this file checks 
+    # No real result, this test is based on exceptions
     result: {}
 
 
